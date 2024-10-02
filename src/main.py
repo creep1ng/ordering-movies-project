@@ -7,5 +7,7 @@ if __name__ == "__main__":
 
     # Output the first movie's details to verify it's correctly deserialized
     # Using __dict__ to print the attributes of a Movie instance
-    print(movies_list[0].__dict__)
     print(movies_list[0].year)
+    print(movies_list[1].year)
+
+    print(movies_list[0].compare_by_attribute(movies_list[1], "year"))
