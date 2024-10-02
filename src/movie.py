@@ -1,16 +1,15 @@
 from datetime import date
-from comparable import Comparable
 
 
-class Movie(Comparable):
+class Movie:
     movie: str
     year: int
     production_budget: float
-    domestic_gross: int
-    foreign_gross: int
-    worldwide_gross: int
+    domestic_gross: float
+    foreign_gross: float
+    worldwide_gross: float
     month: int
-    profit: int
+    profit: float
     profit_margin: float
     roi: float
     pct_foreign: float
@@ -89,21 +88,13 @@ class Movie(Comparable):
         self.western = western
 
     def __eq__(self, other: object) -> bool:
-        if isinstance(object, Movie):
+        if isinstance(other, Movie):
             return self.year == other.year
 
         return NotImplemented
 
     def __lt__(self, other: 'Movie') -> bool:
-        return self.year > other.year
+        return self.year < other.year
 
     def __le__(self, other: 'Movie') -> bool:
         return self.year <= other.year
-
-    def compare_by_attribute(self, other: 'Movie', attrib: str) -> bool:
-        if attrib not in Movie.__dict__.keys():
-            raise ValueError(f"Atrribute {attrib} is not in ")
-
-        else:
-            # Don't ask me if this is secure. Just trust me.
-            return eval(f"self.{attrib} > other.{attrib}")
