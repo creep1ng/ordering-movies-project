@@ -6,8 +6,6 @@ from movie import Movie
 import matplotlib
 from heapq import nlargest
 
-# Updated create_animated_plot function
-
 
 def create_animated_plot(movie_list: list[Movie], n: int, field: str):
     years = sorted(set(movie.year for movie in movie_list))
